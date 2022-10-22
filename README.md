@@ -1,4 +1,4 @@
-# vuejs-ii
+# vuejs-week 10 - solution
 
 ## Project setup
 ```
