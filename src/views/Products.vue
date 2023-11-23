@@ -1,4 +1,8 @@
 <template>
+  <div>
+    <Header>
+    </Header>
+  </div>
  <div class="products">
   <h2> Our Products page</h2>
   <product-compo-one/> 
@@ -11,9 +15,14 @@
 <script>
 import ProductCompoOne from "@/components/ProductCompoOne.vue";
 import ProductCompoTwo from "@/components/ProductCompoTwo.vue";
+import Header from '@/components/Header.vue';
 export default {
 name: "Products",
-components: { ProductCompoOne, ProductCompoTwo },
+components: {
+  ProductCompoOne,
+  ProductCompoTwo,
+  Header
+},
 
 methods: {
 IncreasePrice: function() {
