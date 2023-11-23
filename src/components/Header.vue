@@ -49,7 +49,7 @@ nav a {
 }
 
 nav a:hover {
-  background-color: #BEC7CA;
+  background-color: #cadede;
   color: #000000;
   border-radius: 15%;
 }

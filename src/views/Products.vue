@@ -10,18 +10,22 @@
   <button v-on:click="DecreasePrice"> Decrease price </button><br/>
   <product-compo-two/>
  </div>
+  <Footer>
+  </Footer>
 </template>
 
 <script>
 import ProductCompoOne from "@/components/ProductCompoOne.vue";
 import ProductCompoTwo from "@/components/ProductCompoTwo.vue";
 import Header from '@/components/Header.vue';
+import Footer from "@/components/Footer";
 export default {
 name: "Products",
 components: {
   ProductCompoOne,
   ProductCompoTwo,
-  Header
+  Header,
+  Footer
 },
 
 methods: {
