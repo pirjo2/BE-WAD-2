@@ -1,23 +1,39 @@
 <template>
+
   <div class="signupform">
     <form class="signuparea">
-      <label for="email">Email</label>
-      <input type="password" id="email"><br>
-      <label for="pass">Password</label>
-      <input type="password" id="pass"><br>
-      <button @click="checkPassword">Signup</button>
+      <label>Email</label>
+      <input v-model="email" @input="updateForm('email')"><br>
+      <label>Password</label>
+      <input v-model="password" @input="updateForm('password')"><br>
+      <p v-if="passwordValidation = true"></p>
+      <!-- kui kasutada passwordValidation, siis läheb pekki. nt: v-if="passwordvalidation" selles <p> atribuutis
+           voi nupu disablemisel -->
+      <button>Signup</button>
     </form>
   </div>
 </template>
 
 
 <script>
+
 export default {
   name: 'SignUp',
+  computed: {
+    email: function() {
+      return this.$store.state.SignUpForm.email;
+    },
+    password: function() {
+      return this.$store.state.SignUpForm.password;
+    },
+    passwordValidation: function() {
+      return this.$store.getters.passwordValidation() ;
+    },
+  },
   methods: {
-    checkPassword: function () {
-    
-    }
+    updateForm() {
+      this.$store.commit('updateSignUpForm', {field, value: this[field] });
+    },
   }
 }
 </script>
@@ -64,7 +80,7 @@ button {
 }
 
 button:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.8);
   color: #000000;
   cursor: pointer;
 }

@@ -94,9 +94,28 @@ export default createStore({
                 "author": "Joonas123",
                 "likes": 0
             }
-        ]
-    },
+        ],
 
+        SignUpForm: {
+            email: 'toimib@gmail.com',
+            password: 'S33_toimib'
+        }
+    },
+        getters: {
+            passwordValidation: state => {
+                const password = state.SignUpForm.password;
+                const lowerCase = password.match(/[a-z]/) || [];
+                const upperCase = password.match(/[A-Z]/) || [];
+                return password.length >= 8 &&
+                    password.length < 15 &&
+                    password[0].match(/[A-Z]/) &&
+                    /[A-Z]/.test(password[0]) &&
+                    lowerCase.length >= 2 &&
+                    upperCase.length >= 1 &&
+                    /\d/.test(password) &&
+                    /_/.test(password);
+            }
+        },
     mutations: {
         /**setPosts(state, posts) {
             state.posts = posts;
@@ -113,6 +132,9 @@ export default createStore({
                 // You might want to send an API request to update the likes on the server here
                 // For demonstration purposes, the likes are only updated locally in this example
             }
+        },
+        updateSignUpForm(state, {field, value}) {
+            state.SignUpForm[field] = value;
         }
 
     },
