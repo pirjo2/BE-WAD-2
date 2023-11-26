@@ -16,7 +16,7 @@ export default {
   name: 'SignUp',
   methods: {
     checkPassword: function () {
-      this.$store.dispatch('resetAllLikesAct');
+    
     }
   }
 }
