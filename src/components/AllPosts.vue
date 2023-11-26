@@ -10,21 +10,32 @@
         </header>
         <img :src="post.postImage"  class="post-content" />
         <a class="post-title">{{ post.postText }}</a>
-        <img src="pictures/like-dark.png" alt="Like Button" class="like-button"  />
-        </div>
-      </div>
+
+        <a class="likes"> Likes:{{post.likes}} </a>
+        <button class="like-button" @click="handleLike(post.id)">
+          <img src="pictures/like.png" alt="Like Button"  />
+        </button>
+    </div>
+    </div>
     
     </template>
     
     <script>
     export default {
       computed: {
-        posts() {
+        posts: function (){
           return this.$store.state.posts;
           console.log('Fetched posts:', this.$store.state.posts);
         },
       },
+
       methods: {
+        incrementLikesAction: function(postId) {
+          this.$store.dispatch('incrementLikesAction', postId); // Dispatching the 'incrementLikesAction' Vuex action with the postId
+        },
+        handleLike: function(postId) {
+          this.incrementLikesAction(postId); // Calls the 'incrementLikesAction' Vuex action when the 'Like' button is clicked
+        },
         fetchData() {
            this.$store.dispatch('fetchPosts');
         },
@@ -106,7 +117,7 @@
         cursor: pointer;
         user-select: none;
         float: left;
-        display: block;
+        display: contents;
     }
     @media (max-width: 800px) {
         .posts {

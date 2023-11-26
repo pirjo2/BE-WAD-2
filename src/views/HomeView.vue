@@ -8,6 +8,7 @@
     <HelloWorld msg="Welcome to Your Vue.js App"/>-->
     <all-posts/>
   </div>
+  <button @click="resetAllLikes">Reset All Likes</button>
   <Footer>
   </Footer>
 </template>
@@ -26,6 +27,29 @@ export default {
     Header,
     Footer,
     AllPosts
+  },
+  methods: {
+    resetAllLikes: function () {
+      this.$store.dispatch('resetAllLikesAct');
+    }
   }
 }
 </script>
+<style scoped>
+button {
+  background:  #C4B7CB;
+  border: 0;
+  padding: 10px 20px 10px 20px;
+  margin-top:  20px;
+  margin-bottom:  20px;
+  margin-right:  10px;
+  color: #503E52;
+  border-radius: 10px;
+}
+
+button:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+  color: #000000;
+  cursor: pointer;
+}
+</style>
