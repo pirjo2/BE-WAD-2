@@ -120,7 +120,7 @@ export default createStore({
         resetAllLikesAct: act => {
             setTimeout(function() {
                 act.commit("resetAllLikes")
-            }, 1000)
+            })
         },
         incrementLikesAction({ commit }, postId) {
             commit('incrementLikes', postId);
