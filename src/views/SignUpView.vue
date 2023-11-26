@@ -11,7 +11,7 @@
 </template>
 
 <script>
-// @ is an alias to /src
+// @ is an alias to /src  v-model="password" @input="updateForm('password')" placeholder="password v-model="email" @input="updateForm('email')" placeholder="email"
 import SignUp from '@/components/SignUp.vue';
 import Header from '@/components/Header.vue';
 import Footer from "@/components/Footer.vue";
